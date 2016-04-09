@@ -44,7 +44,7 @@
 
                     <appendAssemblyId>false</appendAssemblyId>
 
-                    <outputDirectory>..\..\Desktop\spig1.8\1.9 testing</outputDirectory>
+                    <outputDirectory>../../Desktop/Development/Sources/TestEnvironment/plugins/</outputDirectory>
 
                 </configuration>
             </plugin>
@@ -61,8 +61,8 @@
     <dependencies>
         <dependency>
             <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>1.8.8-R0.1-SNAPSHOT</version>
+            <artifactId>spigot-1-9-2</artifactId>
+            <version>1.9.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

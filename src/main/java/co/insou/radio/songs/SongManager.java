@@ -3,6 +3,7 @@ package co.insou.radio.songs;
 import co.insou.radio.Main;
 import co.insou.radio.noteblockapi.NBSDecoder;
 import co.insou.radio.noteblockapi.Song;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.ItemStack;
@@ -35,19 +36,27 @@ public class SongManager {
         }
         songConf = YamlConfiguration.loadConfiguration(file);
         loadSongs();
+        save();
     }
 
     private void loadSongs() {
+        if (!songConf.isConfigurationSection("songs")) {
+            songConf.createSection("songs");
+        }
+        System.out.println("===========================");
+        System.out.println("| LOADING ALL RADIO SONGS");
         for (String key : songConf.getConfigurationSection("songs").getKeys(false)) {
             Integer id;
             try {
                 id = Integer.parseInt(key);
             } catch (NumberFormatException e) {
-                plugin.getLogger().warning("Could not load song: Invalid song id: " + key);
+                plugin.getLogger().warning("| Could not load song: Invalid song id: " + key);
                 continue;
             }
             loadSong(id);
         }
+        System.out.println("| FINISHED LOADING RADIO SONGS");
+        System.out.println("============================");
     }
 
     public void loadSong(int id) {
@@ -81,10 +90,30 @@ public class SongManager {
         }
         icon = new ItemStack(material, 1, data.shortValue());
         loadedSongs.add(builder.withId(id).withSong(song).withName(name).withIcon(icon).build());
+        System.out.println("| Successfully loaded song " + name + ": " + songFile);
     }
 
     public void saveSong(RadioSong song) {
         
+    }
+
+    private void save() {
+        Bukkit.getScheduler().runTaskAsynchronously(plugin, new Runnable() {
+            @Override
+            public void run() {
+                synchronized (SongManager.this) {
+                    try {
+                        songConf.save(file);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+    }
+
+    public List<RadioSong> getSongs() {
+        return loadedSongs;
     }
 
 }

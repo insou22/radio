@@ -1,5 +1,5 @@
 name: Radio
-version: ${project.version}
+version: 1.0-SNAPSHOT
 main: co.insou.radio.Main
 
 author: insou

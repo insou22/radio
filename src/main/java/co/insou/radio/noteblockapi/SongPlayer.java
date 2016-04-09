@@ -24,10 +24,16 @@ public abstract class SongPlayer {
     protected int fadeDuration = 60;
     protected int fadeDone = 0;
     protected FadeType fadeType = FadeType.FADE_LINEAR;
+    private FinishListener finishListener;
 
     public SongPlayer(NoteBlockManager manager, Song song) {
+        this(manager, song, null);
+    }
+
+    public SongPlayer(NoteBlockManager manager, Song song, FinishListener finishListener) {
         this.manager = manager;
         this.song = song;
+        this.finishListener = finishListener;
         createThread();
     }
 
@@ -94,6 +100,9 @@ public abstract class SongPlayer {
                                 playing = false;
                                 tick = -1;
                                 SongEndEvent event = new SongEndEvent(SongPlayer.this);
+                                if (finishListener != null) {
+                                    finishListener.onFinish();
+                                }
                                 Bukkit.getPluginManager().callEvent(event);
                                 if (autoDestroy) {
                                     destroy();

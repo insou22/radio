@@ -7,7 +7,11 @@ public class RadioSongPlayer extends SongPlayer {
     private final NoteBlockManager manager;
 
     public RadioSongPlayer(NoteBlockManager manager, Song song) {
-        super(manager, song);
+        this(manager, song, null);
+    }
+
+    public RadioSongPlayer(NoteBlockManager manager, Song song, FinishListener finishListener) {
+        super(manager, song, finishListener);
         this.manager = manager;
     }
 
