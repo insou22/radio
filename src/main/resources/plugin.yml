@@ -1,0 +1,12 @@
+name: Radio
+version: ${project.version}
+main: co.insou.radio.Main
+
+author: insou
+
+website: https://spigotdev.xyz
+
+commands:
+  radio:
+    description: 'Radio base command'
+    aliases: [r, rad, rdio]
