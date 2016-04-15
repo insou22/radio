@@ -1,6 +1,6 @@
 package co.insou.radio.listeners;
 
-import co.insou.radio.Main;
+import co.insou.radio.Radio;
 import co.insou.radio.radio.RadioPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -10,9 +10,9 @@ import org.bukkit.event.inventory.InventoryCloseEvent;
 
 public class GUIListener implements Listener {
 
-    private final Main plugin;
+    private final Radio plugin;
 
-    public GUIListener(Main plugin) {
+    public GUIListener(Radio plugin) {
         this.plugin = plugin;
     }
 

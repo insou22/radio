@@ -1,6 +1,6 @@
 name: Radio
 version: 1.0-SNAPSHOT
-main: co.insou.radio.Main
+main: co.insou.radio.Radio
 
 author: insou
 

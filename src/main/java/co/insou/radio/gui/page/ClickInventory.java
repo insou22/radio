@@ -1,6 +1,6 @@
 package co.insou.radio.gui.page;
 
-import co.insou.radio.Main;
+import co.insou.radio.Radio;
 import co.insou.radio.gui.page.events.PageCloseEvent;
 import co.insou.radio.listeners.InventoryListener;
 import co.insou.radio.radio.RadioPlayer;
@@ -234,7 +234,7 @@ public abstract class ClickInventory<E> implements RadioInventory {
                         if (currentInventory == null) {
                             return;
                         }
-                        RadioPlayer sellPlayer = ((Main) Bukkit.getPluginManager().getPlugin(PLUGIN_NAME)).getPlayerManager().getRadioPlayer(getPlayer());
+                        RadioPlayer sellPlayer = ((Radio) Bukkit.getPluginManager().getPlugin(PLUGIN_NAME)).getPlayerManager().getRadioPlayer(getPlayer());
                         if (sellPlayer == null) {
                             throw new IllegalArgumentException("SellPlayer is null");
                         }
@@ -288,7 +288,7 @@ public abstract class ClickInventory<E> implements RadioInventory {
 
     public void displayInventory() {
         if (player.getOpenInventory() != null) {
-            final RadioPlayer sellPlayer = ((Main) Bukkit.getPluginManager().getPlugin(PLUGIN_NAME)).getPlayerManager().getRadioPlayer(player);
+            final RadioPlayer sellPlayer = ((Radio) Bukkit.getPluginManager().getPlugin(PLUGIN_NAME)).getPlayerManager().getRadioPlayer(player);
             sellPlayer.addExternalIgnore(ExternalIgnorance.CLICKINV_DISPLAY_INVENTORY);
             player.closeInventory();
             player.getOpenInventory().close();

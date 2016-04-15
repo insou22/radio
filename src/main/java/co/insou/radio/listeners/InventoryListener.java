@@ -1,6 +1,6 @@
 package co.insou.radio.listeners;
 
-import co.insou.radio.Main;
+import co.insou.radio.Radio;
 import co.insou.radio.gui.page.ClickInventory;
 import co.insou.radio.gui.page.PageInventory;
 import org.bukkit.entity.Player;
@@ -16,9 +16,9 @@ import java.util.List;
 
 public class InventoryListener implements Listener {
 
-    private final Main plugin;
+    private final Radio plugin;
 
-    public InventoryListener(Main plugin) {
+    public InventoryListener(Radio plugin) {
         this.plugin = plugin;
     }
 

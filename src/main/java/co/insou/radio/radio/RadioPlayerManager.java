@@ -1,6 +1,6 @@
 package co.insou.radio.radio;
 
-import co.insou.radio.Main;
+import co.insou.radio.Radio;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -13,14 +13,14 @@ import java.util.Map;
 
 public class RadioPlayerManager {
 
-    private final Main plugin;
+    private final Radio plugin;
 
     private File storage;
     private YamlConfiguration config;
 
     private Map<Player, RadioPlayer> players = new HashMap<>();
 
-    public RadioPlayerManager(Main plugin) {
+    public RadioPlayerManager(Radio plugin) {
         this.plugin = plugin;
         storage = new File(plugin.getDataFolder(), "database.yml");
         if (!storage.exists()) {
@@ -40,6 +40,14 @@ public class RadioPlayerManager {
 
     public void deregister(Player player) {
         plugin.getNoteBlockManager().stopPlaying(player);
+        PlayerRadio radio = getRadioPlayer(player).getPlayerRadio();
+        if (radio != null) {
+            radio.getCurrentSongPlayer().setPlaying(false);
+            radio.getCurrentSongPlayer().destroy();
+            radio.setCurrentSongPlayer(null);
+            radio.setCurrentSong(null);
+            radio.setCurrentRadioSong(null);
+        }
         players.remove(player);
     }
 

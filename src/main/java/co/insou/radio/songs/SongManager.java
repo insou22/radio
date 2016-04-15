@@ -1,6 +1,6 @@
 package co.insou.radio.songs;
 
-import co.insou.radio.Main;
+import co.insou.radio.Radio;
 import co.insou.radio.noteblockapi.NBSDecoder;
 import co.insou.radio.noteblockapi.Song;
 import org.bukkit.Bukkit;
@@ -15,13 +15,13 @@ import java.util.List;
 
 public class SongManager {
 
-    private final Main plugin;
+    private final Radio plugin;
 
     private List<RadioSong> loadedSongs;
     private File file;
     private YamlConfiguration songConf;
 
-    public SongManager(Main plugin) {
+    public SongManager(Radio plugin) {
         this.plugin = plugin;
         this.loadedSongs = new ArrayList<>();
         file = new File(plugin.getDataFolder(), "songs.yml");

@@ -14,7 +14,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class Main extends JavaPlugin {
+public class Radio extends JavaPlugin {
 
     private volatile boolean skullsLoaded = false;
     private NoteBlockManager noteBlockManager;

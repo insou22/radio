@@ -1,13 +1,11 @@
 package co.insou.radio.radio;
 
-import co.insou.radio.Main;
+import co.insou.radio.Radio;
 import co.insou.radio.gui.GUIPageType;
 import co.insou.radio.gui.page.ExternalIgnorance;
 import co.insou.radio.gui.pages.GUIPage;
 import co.insou.radio.gui.pages.RadioHomePage;
 import co.insou.radio.gui.pages.SongSelectionPage;
-import co.insou.radio.noteblockapi.SongPlayer;
-import co.insou.radio.songs.RadioSong;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -18,7 +16,7 @@ import java.util.*;
 
 public class RadioPlayer {
 
-    private final Main plugin;
+    private final Radio plugin;
     private final Player player;
 
     private PlayerRadio playerRadio;
@@ -33,7 +31,7 @@ public class RadioPlayer {
     private volatile GUIPage absoluteInventory;
     //END GUI
 
-    public RadioPlayer(Main plugin, Player player) {
+    public RadioPlayer(Radio plugin, Player player) {
         this.plugin = plugin;
         this.player = player;
         playerRadio = new PlayerRadio(plugin, player, false, false, true);
@@ -53,7 +51,7 @@ public class RadioPlayer {
         return player;
     }
 
-    public Main getPlugin() {
+    public Radio getPlugin() {
         return plugin;
     }
 

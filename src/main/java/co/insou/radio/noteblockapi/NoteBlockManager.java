@@ -1,6 +1,6 @@
 package co.insou.radio.noteblockapi;
 
-import co.insou.radio.Main;
+import co.insou.radio.Radio;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
@@ -8,11 +8,11 @@ import java.util.List;
 
 public class NoteBlockManager {
 
-    private final Main plugin;
+    private final Radio plugin;
     private HashMap<String, List<SongPlayer>> playingSongs = new HashMap<>();
     private HashMap<String, Byte> playerVolume = new HashMap<>();
 
-    public NoteBlockManager(Main plugin) {
+    public NoteBlockManager(Radio plugin) {
         this.plugin = plugin;
     }
 

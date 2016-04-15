@@ -1,6 +1,6 @@
 package co.insou.radio.gui.page;
 
-import co.insou.radio.Main;
+import co.insou.radio.Radio;
 import co.insou.radio.gui.GUIPageType;
 import co.insou.radio.gui.InventoryAPI;
 import co.insou.radio.gui.ItemClickHandler;
@@ -142,7 +142,7 @@ public final class PageInventory extends ClickInventory {
                     Bukkit.getPluginManager().callEvent(newEvent);
                     if (!newEvent.isCancelled()) {
                         setPage(getCurrentPage() + newPage);
-                        RadioPlayer player = ((Main) Bukkit.getPluginManager().getPlugin("Radio")).getPlayerManager().getRadioPlayer(getPlayer());
+                        RadioPlayer player = ((Radio) Bukkit.getPluginManager().getPlugin("Radio")).getPlayerManager().getRadioPlayer(getPlayer());
                         if (player == null) {
                             throw new IllegalArgumentException("RadioPlayer is null");
                         }

@@ -1,6 +1,6 @@
 package co.insou.radio.radio;
 
-import co.insou.radio.Main;
+import co.insou.radio.Radio;
 import co.insou.radio.gui.pages.RadioHomePage;
 import co.insou.radio.music.MusicQueue;
 import co.insou.radio.music.QueueMaker;
@@ -16,7 +16,7 @@ import org.bukkit.entity.Player;
 
 public class PlayerRadio {
 
-    private final Main plugin;
+    private final Radio plugin;
 
     private final Player player;
 
@@ -29,7 +29,7 @@ public class PlayerRadio {
     private boolean shuffle;
     private boolean notify;
 
-    public PlayerRadio(Main plugin, Player player, boolean repeatSong, boolean shuffle, boolean notify) {
+    public PlayerRadio(Radio plugin, Player player, boolean repeatSong, boolean shuffle, boolean notify) {
         this.plugin = plugin;
         this.player = player;
         this.repeatSong = repeatSong;

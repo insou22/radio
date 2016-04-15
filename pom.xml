@@ -33,7 +33,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>co.insou.radio.Main</mainClass>
+                            <mainClass>co.insou.radio.Radio</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

@@ -1,15 +1,9 @@
 package co.insou.radio.commands;
 
-import co.insou.radio.Main;
+import co.insou.radio.Radio;
 import co.insou.radio.gui.pages.RadioHomePage;
 import co.insou.radio.gui.pages.SongSelectionPage;
-import co.insou.radio.noteblockapi.NBSDecoder;
-import co.insou.radio.noteblockapi.PositionSongPlayer;
-import co.insou.radio.noteblockapi.RadioSongPlayer;
-import co.insou.radio.noteblockapi.Song;
-import co.insou.radio.radio.PlayerRadio;
 import co.insou.radio.radio.RadioPlayer;
-import co.insou.radio.songs.RadioSong;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -18,9 +12,9 @@ import org.bukkit.entity.Player;
 
 public class RadioCommand implements CommandExecutor {
 
-    private final Main plugin;
+    private final Radio plugin;
 
-    public RadioCommand(Main plugin) {
+    public RadioCommand(Radio plugin) {
         this.plugin = plugin;
     }
 

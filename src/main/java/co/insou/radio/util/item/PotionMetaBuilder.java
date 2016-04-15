@@ -59,7 +59,7 @@ public class PotionMetaBuilder extends MetaBuilder {
 	/**
 	 * Change the main effect of the potion
 	 *
-	 * @param mainEffect Main {@link PotionEffectType}
+	 * @param mainEffect Radio {@link PotionEffectType}
 	 * @return the PotionMetaBuilder
 	 */
 	public PotionMetaBuilder withMainEffect(PotionEffectType mainEffect) {
