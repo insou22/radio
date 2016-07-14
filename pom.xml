@@ -26,6 +26,10 @@
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
+        <repository>
+            <id>insou-repo</id>
+            <url>http://repo.insouciance.co/snapshots</url>
+        </repository>
     </repositories>
 
     <dependencies>
