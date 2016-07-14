@@ -17,7 +17,7 @@ public abstract class SongPlayer {
     protected List<String> playerList = new ArrayList<>();
     protected boolean autoDestroy = false;
     protected boolean destroyed = false;
-    protected Thread playerThread;
+//    protected Thread playerThread;
     protected byte fadeTarget = 100;
     protected byte volume = 100;
     protected byte fadeStart = volume;
@@ -77,7 +77,7 @@ public abstract class SongPlayer {
         this.fadeDone = fadeDone;
     }
 
-    protected void calculateFade() {
+    private void calculateFade() {
         if (fadeDone == fadeDuration) {
             return; // no fade today
         }
@@ -86,8 +86,8 @@ public abstract class SongPlayer {
         fadeDone++;
     }
 
-    protected void createThread() {
-        playerThread = new Thread(new Runnable() {
+    private void createThread() {
+        Thread playerThread = new Thread(new Runnable() {
             @Override
             public void run() {
                 while (!destroyed) {
@@ -222,7 +222,7 @@ public abstract class SongPlayer {
         return volume;
     }
 
-    public void setVolume(byte volume) {
+    private void setVolume(byte volume) {
         this.volume = volume;
     }
 

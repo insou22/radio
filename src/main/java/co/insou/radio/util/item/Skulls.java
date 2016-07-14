@@ -2,14 +2,12 @@ package co.insou.radio.util.item;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
+
 import org.apache.commons.codec.binary.Base64;
 import org.bukkit.Material;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
-import java.io.File;
-import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.UUID;
 
@@ -47,6 +45,7 @@ public class Skulls {
 
 
         SkullMeta headMeta = (SkullMeta) head.getItemMeta();
+
         GameProfile profile = new GameProfile(UUID.randomUUID(), null);
         byte[] encodedData = Base64.encodeBase64(String.format("{textures:{SKIN:{url:\"%s\"}}}", url).getBytes());
         profile.getProperties().put("textures", new Property("textures", new String(encodedData)));
